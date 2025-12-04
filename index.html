@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NIRD - Le Village Numérique Résistant. Application ludique pour sensibiliser aux enjeux du logiciel libre et de la sobriété numérique dans l'éducation.">
+    <meta name="keywords" content="NIRD, logiciel libre, éducation, Linux, open source, sobriété numérique">
+    <title>Le Village Numérique Résistant - NIRD</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Canvas pour les particules de fond -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Toggle Mode Retro -->
+    <button id="retro-toggle" class="retro-toggle" onclick="toggleRetroMode()" title="Activer le mode Terminal Rétro">
+        🕹️ Mode Rétro
+    </button>
+
+    <header>
+        <div class="container">
+            <h1>🛡️ Le Village Résistant</h1>
+            <p>David contre Goliath : L'école face aux Big Tech</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section Introduction -->
+        <section id="intro">
+            <div class="container">
+                <h2>⚠️ Alerte Générale</h2>
+                <p class="intro-text">Le support de Windows 10 s'arrête en octobre 2025. L'Empire Numérique (Microsoft, Google, Apple...) vous demande de tout racheter. Des milliers d'ordinateurs encore fonctionnels vont finir à la décharge.</p>
+                <p class="intro-question">Allez-vous céder à l'obsolescence programmée ou entrer en résistance ?</p>
+                <button id="start-btn" class="btn-primary" onclick="startGame()">🚀 Rejoindre la Résistance</button>
+            </div>
+        </section>
+
+        <!-- Dashboard des Stats (caché au début) -->
+        <section id="stats-dashboard" class="hidden">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <h4>Budget</h4>
+                            <p id="budget-value">100 000 €</p>
+                            <div class="gauge">
+                                <div class="gauge-bar budget" id="budget-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🌍</div>
+                        <div class="stat-info">
+                            <h4>Empreinte CO2</h4>
+                            <p id="co2-value">0 tonnes</p>
+                            <div class="gauge">
+                                <div class="gauge-bar co2" id="co2-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">😊</div>
+                        <div class="stat-info">
+                            <h4>Satisfaction</h4>
+                            <p id="satisfaction-value">50%</p>
+                            <div class="gauge">
+                                <div class="gauge-bar satisfaction" id="satisfaction-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="scenario-progress" id="scenario-progress">Mission 1/6</p>
+            </div>
+        </section>
+
+        <!-- Interface de Jeu -->
+        <section id="game-interface" class="hidden">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="title">Terminal de Direction - Lycée Carnot</span>
+                </div>
+                <div class="terminal-body">
+                    <h3 id="scenario-title">Chargement...</h3>
+                    <p id="scenario-desc">Initialisation du système...</p>
+                    <div class="choices">
+                        <button id="choice-a" class="btn-choice">Option A</button>
+                        <button id="choice-b" class="btn-choice">Option B</button>
+                    </div>
+                    <div id="feedback" class="feedback hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section NIRD Info -->
+        <section id="nird-info">
+            <div class="container">
+                <h2>🧭 La Voie du NIRD</h2>
+                <p class="section-intro">NIRD signifie <strong>Numérique Inclusif, Responsable et Durable</strong>. C'est la feuille de route pour un numérique éducatif qui respecte à la fois les humains et la planète.</p>
+                <div class="pillars">
+                    <div class="card pillar-card">
+                        <div class="card-icon">🤝</div>
+                        <h3>Inclusion</h3>
+                        <p>Ne laisser personne au bord de la route numérique. Le libre permet à tous d'accéder aux outils, même avec du vieux matériel.</p>
+                    </div>
+                    <div class="card pillar-card">
+                        <div class="card-icon">🌍</div>
+                        <h3>Responsabilité</h3>
+                        <p>Des outils éthiques qui protègent les données des élèves. Pas de publicité ciblée, pas de surveillance. Souveraineté numérique.</p>
+                    </div>
+                    <div class="card pillar-card">
+                        <div class="card-icon">♻️</div>
+                        <h3>Durabilité</h3>
+                        <p>Lutter contre l'obsolescence programmée. Réparer plutôt que jeter. Un PC de 10 ans peut tourner sous Linux comme une fusée !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section La Forge (Alternatives Libres) -->
+        <section id="la-forge">
+            <div class="container">
+                <h2>⚒️ La Forge : Les Alternatives Libres</h2>
+                <p class="section-intro">Découvre les outils libres qui remplacent les géants du numérique. Gratuitement, éthiquement, et pour toujours.</p>
+                
+                <div class="forge-grid">
+                    <div class="forge-card">
+                        <div class="forge-vs">
+                            <div class="proprietary">
+                                <span class="tool-name">Microsoft Office</span>
+                                <span class="tool-cost">💸 45 000€/an</span>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div class="libre">
+                                <span class="tool-name">📄 LibreOffice</span>
+                                <span class="tool-cost">✅ 0€ (Libre)</span>
+                            </div>
+                        </div>
+                        <p>Suite bureautique complète : traitement de texte, tableur, présentation.</p>
+                        <a href="https://www.libreoffice.org/" target="_blank" class="learn-more">Découvrir →</a>
+                    </div>
+
+                    <div class="forge-card">
+                        <div class="forge-vs">
+                            <div class="proprietary">
+                                <span class="tool-name">Windows 10/11</span>
+                                <span class="tool-cost">💸 500€/PC</span>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div class="libre">
+                                <span class="tool-name">🐧 Linux Mint</span>
+                                <span class="tool-cost">✅ 0€ (Libre)</span>
+                            </div>
+                        </div>
+                        <p>Système d'exploitation moderne, rapide et sécurisé pour tous les PC.</p>
+                        <a href="https://linuxmint.com/" target="_blank" class="learn-more">Découvrir →</a>
+                    </div>
+
+                    <div class="forge-card">
+                        <div class="forge-vs">
+                            <div class="proprietary">
+                                <span class="tool-name">Google Drive</span>
+                                <span class="tool-cost">🔍 Vos données</span>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div class="libre">
+                                <span class="tool-name">☁️ Nextcloud</span>
+                                <span class="tool-cost">✅ Souverain</span>
+                            </div>
+                        </div>
+                        <p>Cloud auto-hébergé. Vos données restent chez vous, conformes RGPD.</p>
+                        <a href="https://nextcloud.com/" target="_blank" class="learn-more">Découvrir →</a>
+                    </div>
+
+                    <div class="forge-card">
+                        <div class="forge-vs">
+                            <div class="proprietary">
+                                <span class="tool-name">Microsoft Teams</span>
+                                <span class="tool-cost">💸 15 000€/an</span>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div class="libre">
+                                <span class="tool-name">🎥 BigBlueButton</span>
+                                <span class="tool-cost">✅ 0€ (Libre)</span>
+                            </div>
+                        </div>
+                        <p>Visioconférence éducative : tableau blanc, sondages, enregistrements.</p>
+                        <a href="https://bigbluebutton.org/" target="_blank" class="learn-more">Découvrir →</a>
+                    </div>
+
+                    <div class="forge-card">
+                        <div class="forge-vs">
+                            <div class="proprietary">
+                                <span class="tool-name">Adobe Suite</span>
+                                <span class="tool-cost">💸 600€/an/user</span>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div class="libre">
+                                <span class="tool-name">🎨 GIMP + Inkscape</span>
+                                <span class="tool-cost">✅ 0€ (Libre)</span>
+                            </div>
+                        </div>
+                        <p>Retouche photo et design vectoriel professionnels.</p>
+                        <a href="https://www.gimp.org/" target="_blank" class="learn-more">Découvrir →</a>
+                    </div>
+
+                    <div class="forge-card">
+                        <div class="forge-vs">
+                            <div class="proprietary">
+                                <span class="tool-name">Chrome</span>
+                                <span class="tool-cost">🔍 Trackage Google</span>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div class="libre">
+                                <span class="tool-name">🦊 Firefox</span>
+                                <span class="tool-cost">✅ Vie privée</span>
+                            </div>
+                        </div>
+                        <p>Navigateur respectueux de la vie privée, développé par Mozilla.</p>
+                        <a href="https://www.mozilla.org/firefox/" target="_blank" class="learn-more">Découvrir →</a>
+                    </div>
+                </div>
+
+                <div class="forge-cta">
+                    <p><strong>Et bien d'autres !</strong> Framasoft, Peertube, Moodle, VLC, Audacity, Blender...</p>
+                    <a href="https://framalibre.org/" target="_blank" class="btn-secondary">
+                        🔍 Explorer plus d'alternatives
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>🌟 Projet Nuit de l'Info 2025 - <a href="LICENSE" target="_blank">Licence MIT</a> (Code Libre)</p>
+            <p>💡 Inspiré par le défi <strong>NIRD</strong> - Numérique Inclusif, Responsable et Durable</p>
+            <p>🔗 <a href="https://nird.forge.apps.education.fr/" target="_blank" class="cta-link">Rejoindre la communauté NIRD</a></p>
+            <p class="easter-egg">🧙‍♂️ <em>"Par Toutatis, vive le logiciel libre !"</em> - Panoramix, Druide du code ouvert</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./assets/js/particles.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
