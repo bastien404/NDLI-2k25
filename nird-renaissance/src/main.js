@@ -12,6 +12,7 @@ import { initScrollytelling } from './animations/scrollytelling.js';
 import { initCursor } from './animations/cursor.js';
 import { initSimulator } from './components/simulator.js';
 import { initSmoothScroll } from './smooth-scroll.js';
+import { initSnake } from './components/snake.js';
 
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,6 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('lenis');
     console.log('Reduced motion mode: Heavy animations disabled');
   }
+  
+  // Initialize hidden Snake game 🐍
+  initSnake();
   
   // Log success
   console.log(`
