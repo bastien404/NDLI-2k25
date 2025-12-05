@@ -1,0 +1,61 @@
+:root {
+  font-family: 'Courier New', monospace;
+  background-color: #111;
+  color: white;
+  overflow: hidden;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  display: block;
+  image-rendering: pixelated; 
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#start-screen {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #ff0055;
+  text-shadow: 4px 4px #000;
+  margin-bottom: 0;
+}
+
+p {
+  font-size: 1.5rem;
+  animation: blink 1s infinite;
+}
+
+body::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 5;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}

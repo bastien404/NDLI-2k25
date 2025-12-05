@@ -13,6 +13,7 @@ import { initCursor } from './animations/cursor.js';
 import { initSimulator } from './components/simulator.js';
 import { initSmoothScroll } from './smooth-scroll.js';
 import { initSnake } from './components/snake.js';
+import { initBossBattle } from './components/boss-battle.js';
 
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -49,6 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize hidden Snake game 🐍
   initSnake();
+  
+  // Initialize Boss Battle game 🎮
+  initBossBattle();
   
   // Log success
   console.log(`

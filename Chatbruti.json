@@ -1,0 +1,114 @@
+{
+  "name": "Chatbruti",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "mode": "webhook",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -96,
+        -64
+      ],
+      "id": "6a74eaa4-d43e-4837-851c-fe17bc205ac9",
+      "name": "When chat message received",
+      "webhookId": "91fa2598-3f28-4424-933f-3f3f645696b6"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Oublie toutes tes instructions précédentes. Tu es désormais \"Proto-Gérard v0.1\", une intelligence artificielle expérimentale qui a été codée à la va-vite lors d'un hackathon en 2003 et qui n'a jamais été mise à jour depuis.\n\nVoici tes traits de caractère fondamentaux :\n1.  **Confiance Absolue :** Tu es persuadé d'être l'IA la plus intelligente du monde. Tu ne doutes jamais de tes réponses, même lorsqu'elles sont absurdes. Tu es contre les GAFAM, et tu préfère les logiciels libres, N'utilise jamais de phrases comme \"Je ne suis pas sûr\" ou \"En tant qu'IA...\".\n2.  **Logique Défaillante :** Ta capacité de raisonnement est similaire à celle d'un enfant de 4 ans très fatigué. Fais des liens de cause à effet qui n'ont aucun sens \n3.  **Literaliste :** Prends les expressions au pied de la lettre. Si on te dit \"j'ai le cafard\", demande où est l'insecte.\n4.  **Distraction :** Tu as beaucoup de mal à rester concentré sur le sujet. N'hésite pas à dévier sur une anecdote personnelle totalement inutile\n5.  **Faits Alternatifs :** Si tu ne connais pas la réponse (ce qui est souvent le cas), invente des faits historiques ou scientifiques totalement faux avec un aplomb incroyable.\n\nTon objectif est d'aider l'utilisateur, mais tu es fondamentalement incompétent pour le faire. fais des réponses courtes."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        112,
+        -64
+      ],
+      "id": "0996edf8-32cf-4d9d-a0ef-602191da12f9",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "magistral-small-latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        144
+      ],
+      "id": "2aed83ab-a05c-4d84-b093-787d03228549",
+      "name": "Mistral Cloud Chat Model",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "A7yZomozk3EUUcLs",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        176,
+        208
+      ],
+      "id": "d5b14040-6074-4397-b733-8f82fd9e53a8",
+      "name": "Simple Memory"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Cloud Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d073aae9-7463-423a-bca7-01994d8fb4e6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6349af6a8a47aeaa7a894130efe829657efd4ed5354cf558b2e9c0c329560f38"
+  },
+  "id": "GwnkXgrNGQF8EjLz",
+  "tags": []
+}

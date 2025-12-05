@@ -291,9 +291,8 @@
 
         <div class="footer-links">
           <a href="https://nird.forge.apps.education.fr" target="_blank">La Forge</a>
-          <a href="#" target="_blank">Documentation</a>
-          <a href="#" target="_blank">Communauté</a>
-          <a href="#" target="_blank">Contact</a>
+          <a href="contact.html" target="_blank">Contact</a>  
+          <button class="boss-battle-trigger">Boss Battle</button>
         </div>
 
         
@@ -339,6 +338,25 @@
 
   </main>
 
+
+
+  <!-- Boss Battle Modal -->
+  <div id="boss-battle-modal" class="boss-battle-modal">
+    <div class="boss-battle-wrapper">
+      <button class="boss-battle__close">âœ•</button>
+      
+      <div id="boss-start-screen">
+        <h1>BOSS BATTLE</h1>
+        <p>CLICK TO START</p>
+      </div>
+      
+      <div id="boss-battle-container"></div>
+    </div>
+  </div>
+
+  <!-- p5.js libraries for Boss Battle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
   <script type="module" src="/src/main.js"></script>
 </body>
 

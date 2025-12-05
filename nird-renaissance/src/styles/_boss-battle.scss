@@ -1,0 +1,331 @@
+/**
+ * Boss Battle - Styles pour le mini-jeu
+ * Style rétro avec effets CRT/scanlines
+ */
+
+// Modal overlay
+.boss-battle-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+// Conteneur du jeu
+.boss-battle-wrapper {
+    position: relative;
+    width: 90vw;
+    max-width: 1200px;
+    height: 80vh;
+    background: #111;
+    border: 3px solid #ff0055;
+    box-shadow:
+        0 0 20px rgba(255, 0, 85, 0.5),
+        inset 0 0 50px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+
+    // Effet CRT
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%),
+            linear-gradient(90deg,
+                rgba(255, 0, 0, 0.06),
+                rgba(0, 255, 0, 0.02),
+                rgba(0, 0, 255, 0.06));
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+        z-index: 10;
+        animation: crt-flicker 0.15s infinite;
+    }
+
+    // Effet scanlines
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px);
+        pointer-events: none;
+        z-index: 9;
+    }
+}
+
+// Conteneur du canvas p5.js
+#boss-battle-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+
+    canvas {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        image-rendering: pixelated;
+    }
+}
+
+// Écran de démarrage
+#boss-start-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 20;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+
+    h1 {
+        font-size: 4rem;
+        color: #ff0055;
+        text-shadow: 4px 4px #000;
+        margin-bottom: 1rem;
+        animation: glow-pulse 2s ease-in-out infinite;
+    }
+
+    p {
+        font-size: 1.5rem;
+        color: #fff;
+        animation: blink-text 1s infinite;
+    }
+
+    &:hover h1 {
+        animation: glow-pulse 0.5s ease-in-out infinite;
+    }
+}
+
+// Bouton de fermeture
+.boss-battle__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 0, 85, 0.2);
+    border: 2px solid #ff0055;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 30;
+    transition: all 0.3s ease;
+    font-size: 24px;
+    color: #ff0055;
+    font-weight: bold;
+
+    &:hover {
+        background: rgba(255, 0, 85, 0.5);
+        box-shadow: 0 0 20px rgba(255, 0, 85, 0.8);
+        transform: rotate(90deg);
+    }
+}
+
+// Bouton trigger (Easter egg dans le footer)
+.boss-battle-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #ff0055, #ff4488);
+    border: 2px solid #ff0055;
+    border-radius: 8px;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(255, 0, 85, 0.5);
+        background: linear-gradient(135deg, #ff4488, #ff0055);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &::before {
+        content: '🎮';
+        font-size: 1.2rem;
+    }
+}
+
+// Animations
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px #ff0055,
+            0 0 20px #ff0055,
+            0 0 30px #ff0055;
+    }
+
+    50% {
+        text-shadow:
+            0 0 20px #ff0055,
+            0 0 30px #ff0055,
+            0 0 40px #ff0055,
+            0 0 50px #ff0055;
+    }
+}
+
+@keyframes blink-text {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes crt-flicker {
+    0% {
+        opacity: 0.27861;
+    }
+
+    5% {
+        opacity: 0.34769;
+    }
+
+    10% {
+        opacity: 0.23604;
+    }
+
+    15% {
+        opacity: 0.90626;
+    }
+
+    20% {
+        opacity: 0.18128;
+    }
+
+    25% {
+        opacity: 0.83891;
+    }
+
+    30% {
+        opacity: 0.65583;
+    }
+
+    35% {
+        opacity: 0.67807;
+    }
+
+    40% {
+        opacity: 0.26559;
+    }
+
+    45% {
+        opacity: 0.84693;
+    }
+
+    50% {
+        opacity: 0.96019;
+    }
+
+    55% {
+        opacity: 0.08594;
+    }
+
+    60% {
+        opacity: 0.20313;
+    }
+
+    65% {
+        opacity: 0.71988;
+    }
+
+    70% {
+        opacity: 0.53455;
+    }
+
+    75% {
+        opacity: 0.37288;
+    }
+
+    80% {
+        opacity: 0.71428;
+    }
+
+    85% {
+        opacity: 0.70419;
+    }
+
+    90% {
+        opacity: 0.7003;
+    }
+
+    95% {
+        opacity: 0.36108;
+    }
+
+    100% {
+        opacity: 0.24387;
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .boss-battle-wrapper {
+        width: 95vw;
+        height: 70vh;
+    }
+
+    #boss-start-screen {
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .boss-battle-trigger {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+}

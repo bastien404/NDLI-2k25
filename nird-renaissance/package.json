@@ -27,6 +27,7 @@
     "vite": "^7.2.6"
   },
   "dependencies": {
-    "@n8n/chat": "^1.0.0-rc.2"
+    "@n8n/chat": "^1.0.0-rc.2",
+    "terser": "^5.44.1"
   }
 }
