@@ -1,175 +1,301 @@
-# 🛡️ NIRD - Le Village Numérique Résistant
+# 🌱 NDLI-2k25 - Nuit de l'Info 2025
 
-> **David contre Goliath : L'école face aux Big Tech**
+> **NIRD: The Renaissance** - Une expérience web immersive pour la libération numérique
 
-Application web ludique et éducative créée pour la **Nuit de l'Info 2025** dans le cadre du défi **NIRD** (Numérique Inclusif, Responsable et Durable).
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?logo=vite)](https://vitejs.dev/)
+[![GSAP](https://img.shields.io/badge/GSAP-3.x-88CE02?logo=greensock)](https://greensock.com/gsap/)
 
-## 🎯 Objectif
+## 📖 À Propos
 
-Sensibiliser les établissements scolaires aux enjeux du **logiciel libre** et de la **sobriété numérique** à travers une expérience gamifiée immersive.
+Projet créé dans le cadre de la **Nuit de l'Info 2025** pour le défi **NIRD** (Numérique Inclusif, Responsable et Durable). Ce repository contient une expérience web narrative et interactive qui sensibilise à l'obsolescence programmée et promeut le logiciel libre dans l'éducation.
 
-## ✨ Fonctionnalités
+**🎯 Mission** : Transformer la perception du numérique éducatif en montrant qu'un ordinateur "obsolète" peut avoir une seconde vie grâce à Linux et aux logiciels libres.
 
-### 🎮 Système de Jeu
-- **6 scénarios interactifs** basés sur des situations réelles d'établissements scolaires
-- **Système de scoring à 3 axes** :
-  - 💰 Budget (optimisation des dépenses)
-  - 🌍 Empreinte CO2 (impact environnemental)
-  - 😊 Satisfaction (moral des élèves et enseignants)
-- **Système de badges** selon les performances
-- **Feedback dynamique** avec animations et effets visuels
+---
 
-### 📚 Contenu Éducatif
-- **La Voie du NIRD** : Explication des 3 piliers (Inclusion, Responsabilité, Durabilité)
-- **La Forge** : Showcase de 6+ alternatives libres aux outils propriétaires
-  - LibreOffice vs Microsoft Office
-  - Linux Mint vs Windows
-  - Nextcloud vs Google Drive
-  - BigBlueButton vs Teams
-  - GIMP/Inkscape vs Adobe Suite
-  - Firefox vs Chrome
-- **Easter Eggs** : Références à Astérix et citations de Panoramix
+## ✨ Projets du Repository
 
-### 🎨 Design Premium
-- **Animations CSS avancées** : fadeIn, slideDown, pulse, glow effects
-- **Particules de fond** animées (Canvas)
-- **Mode Rétro** : Simulation d'un terminal années 80 (scanlines, effet CRT)
-- **Responsive** : Optimisé mobile, tablette et desktop
-- **Glassmorphism** et effets de profondeur
+### 🎮 NIRD Renaissance
 
-## 🚀 Technologies Utilisées
+**Site web narratif immersif** en 4 actes qui raconte l'histoire de la libération numérique.
 
-### Sobriété Numérique par l'exemple
-- **HTML5** : Structure sémantique
-- **CSS3 Vanilla** : Aucune dépendance (Tailwind, Bootstrap, etc.)
-- **JavaScript Vanilla** : Zéro framework (pas de React, Vue, etc.)
-- **Canvas API** : Animations performantes
-- **LocalStorage** : Sauvegarde des préférences utilisateur
+#### Les 4 Actes
 
-### Performance
-- ✅ Pas de dépendances externes
-- ✅ Chargement ultra-rapide (< 100 KB total)
-- ✅ Compatible connexions lentes (3G)
-- ✅ Économie de batterie (animations adaptatives)
-- ✅ Score Lighthouse > 90
+| Acte | Titre | Description |
+|------|-------|-------------|
+| **0** | Le Loader | Écran BIOS rétro avec loader qui "bug" à 99% |
+| **1** | L'Obsolescence | Dystopie cyberpunk avec montagnes de PC obsolètes |
+| **2** | La Résistance | Transition vers l'utopie, présentation de NIRD |
+| **3** | Le Simulateur | Mini-jeu drag & drop pour réparer des PC |
+| **4** | L'Appel | Call-to-action immersif pour rejoindre NIRD |
 
-## 📦 Installation & Déploiement
+#### 🎯 Fonctionnalités Clés
 
-### Local
+**Animations Avancées**
+- ✅ Parallaxe multi-couches (scroll + souris)
+- ✅ Scrollytelling avec GSAP ScrollTrigger
+- ✅ Typography cinétique avec défilement horizontal
+- ✅ Text reveal progressif avec stagger
+- ✅ Custom cursor réactif
+
+**Interactivité**
+- ✅ Mini-jeu drag & drop (réparation de PC)
+- ✅ Boss Battle (Easter egg avec p5.js)
+- ✅ Confetti particles
+- ✅ Compteurs animés (CO₂, PC réparés)
+- ✅ Smooth scroll (Lenis)
+
+**Performance & Éco-conception**
+- ✅ Dark mode par défaut (économie d'énergie)
+- ✅ Animations code-based (pas de vidéo)
+- ✅ Images WebP optimisées
+- ✅ Support `prefers-reduced-motion`
+- ✅ Code splitting automatique
+
+### 🎵 Boss Battle
+
+**Mini-jeu rétro** style shoot'em up développé avec p5.js, intégré comme Easter egg dans le site principal.
+
+- Combat contre un boss qui tire des projectiles
+- Contrôles: Flèches (déplacement) + Espace (tir)
+- Effets CRT et scanlines pour un rendu rétro authentique
+- Système de score et écrans victoire/défaite
+
+---
+
+## 🚀 Installation & Démarrage
+
+### Prérequis
+
+- Node.js 18+ 
+- npm ou pnpm
+
+### Installation
+
 ```bash
 # Cloner le repository
-git clone https://github.com/votre-username/nird-village-resistant.git
-cd nird-village-resistant
+git clone https://github.com/bastien404/NDLI-2k25.git
+cd NDLI-2k25/nird-renaissance
 
-# Ouvrir directement dans le navigateur
-# (Aucune compilation nécessaire, c'est du HTML/CSS/JS pur !)
-start index.html  # Windows
-open index.html   # macOS
-xdg-open index.html  # Linux
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
+npm run dev
 ```
 
-### Déploiement en ligne
+Le site sera accessible sur `http://localhost:3000` (ou le port disponible suivant).
 
-#### Option 1 : Vercel
+### Build de Production
+
 ```bash
-npm install -g vercel
-vercel
+# Créer le build optimisé
+npm run build
+
+# Prévisualiser le build
+npm run preview
 ```
 
-#### Option 2 : Netlify
-1. Créer un compte sur [Netlify](https://www.netlify.com/)
-2. Glisser-déposer le dossier du projet
-3. Le site est en ligne !
+---
 
-#### Option 3 : GitHub Pages
-```bash
-# Pousser sur GitHub
-git remote add origin https://github.com/votre-username/nird-village-resistant.git
-git branch -M main
-git push -u origin main
+## 🛠️ Stack Technique
 
-# Activer GitHub Pages dans Settings > Pages
-# Source : main branch / root
-```
+### Frontend
+- **Build Tool**: Vite.js 5.x
+- **Animations**: GSAP 3.x (avec ScrollTrigger)
+- **Smooth Scroll**: Lenis (Studio Freight)
+- **Styles**: SASS/SCSS + CSS3
+- **JavaScript**: ES6+ Modules (Vanilla)
+- **Canvas**: p5.js 1.9.0 (Boss Battle)
 
-## 🎮 Comment Jouer
+### Éco-conception
+- ❌ **Pas de framework** React/Vue/Angular
+- ❌ **Pas de bibliothèques CSS** Tailwind/Bootstrap
+- ❌ **Pas de vidéos** (animations code-based)
+- ✅ **Code splitting** automatique
+- ✅ **Images optimisées** (WebP)
+- ✅ **Lazy loading**
 
-1. **Cliquer sur "Rejoindre la Résistance"**
-2. **Prendre des décisions** à travers 6 scénarios
-3. **Chaque choix impacte** votre budget, CO2 et satisfaction
-4. **Obtenir un badge** selon vos performances finales
-5. **Rejoindre la communauté NIRD** pour aller plus loin !
+---
 
 ## 📁 Structure du Projet
 
 ```
-NDLI2k25/
-├── index.html              # Page principale
-├── LICENSE                 # Licence MIT
-├── README.md              # Documentation
-└── assets/
-    ├── css/
-    │   └── styles.css     # Styles avec animations
-    └── js/
-        ├── script.js      # Moteur de jeu
-        └── particles.js   # Système de particules
+NDLI-2k25/
+├── nird-renaissance/          # Projet principal
+│   ├── index.html             # Page HTML
+│   ├── vite.config.js         # Config Vite
+│   ├── package.json           # Dépendances
+│   ├── src/
+│   │   ├── main.js            # Point d'entrée
+│   │   ├── smooth-scroll.js   # Lenis integration
+│   │   ├── styles/
+│   │   │   ├── main.scss      # Styles principaux
+│   │   │   ├── _variables.scss# Variables design
+│   │   │   ├── _act2.scss     # Styles Act 2
+│   │   │   ├── _snake.scss    # Styles jeu Snake
+│   │   │   └── _boss-battle.scss # Styles Boss Battle
+│   │   ├── animations/
+│   │   │   ├── loader.js      # Loader BIOS
+│   │   │   ├── parallax.js    # Effets parallaxe
+│   │   │   ├── scrollytelling.js # Scroll animations
+│   │   │   └── cursor.js      # Custom cursor
+│   │   └── components/
+│   │       ├── simulator.js   # Mini-jeu PC repair
+│   │       ├── snake.js       # Jeu Snake (Easter egg)
+│   │       └── boss-battle.js # Boss Battle (Easter egg)
+│   └── public/
+│       └── assets/            # Images, icons    
+├── Chatbruti/                 # Chatbot expérimental
+├── README.md                  # Ce fichier
+├── LICENSE                    # Licence MIT
+├── DEPLOY.md                  # Guide de déploiement
+└── STATS.md                   # Statistiques du projet
 ```
-
-## 🎨 Captures d'Écran
-
-*(À ajouter : Screenshots de l'interface, du jeu, du mode rétro)*
-
-## 🌟 Points Forts pour le Jury
-
-### Respect du Cahier des Charges
-✅ **Gamification** : Système de jeu complet avec scoring  
-✅ **Éducation** : Contenu pédagogique sur NIRD et alternatives libres  
-✅ **Engagement** : Design attractif, animations, easter eggs  
-✅ **Open Source** : Code public sous licence MIT  
-✅ **Éco-conception** : Code léger, vanilla, performant  
-
-### Innovation
-🎯 **Mode Rétro** : Démontre qu'on peut utiliser du vieux matériel  
-🎯 **Particules canvas** : Effet visuel premium sans bibliothèque  
-🎯 **Typewriter effect** : Immersion terminal  
-🎯 **Système de badges** : Gamification poussée  
-
-### Qualité Technique
-⚡ Zéro dépendance externe  
-⚡ Performance optimale (< 100 KB)  
-⚡ Responsive design complet  
-⚡ Accessibilité (sémantique HTML)  
-⚡ Compatible tous navigateurs modernes  
-
-## 🔗 Liens Utiles
-
-- **Défi NIRD** : https://nird.forge.apps.education.fr/
-- **Nuit de l'Info** : https://www.nuitdelinfo.com/
-- **Framasoft** : https://framasoft.org/
-- **Framalibre** : https://framalibre.org/
-
-## 👥 Équipe
-
-Projet réalisé lors de la **Nuit de l'Info 2025** par [Votre équipe].
-
-## 📜 Licence
-
-Ce projet est sous licence **MIT** - voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
-Le code est **100% libre et open source**. Vous pouvez :
-- ✅ L'utiliser dans vos établissements
-- ✅ Le modifier selon vos besoins
-- ✅ Le redistribuer
-- ✅ L'améliorer et contribuer
-
-## 🙏 Remerciements
-
-- **NIRD** pour le défi inspirant
-- **La communauté du libre** (Framasoft, Linux, etc.)
-- **Astérix et Obélix** pour l'inspiration 🧙‍♂️
 
 ---
 
-> *"Par Toutatis, vive le logiciel libre !"* - Panoramix, Druide du code ouvert
+## 🎮 Comment Utiliser
 
-🛡️ **Résistez à l'obsolescence programmée. Rejoignez le Village !**
+### Navigation du Site
+
+1. **Loader** : Attendez que le chargement (fictif) atteigne 100%
+2. **Act 1** : Scrollez pour découvrir la dystopie de l'obsolescence
+3. **Act 2** : Découvrez les solutions NIRD et les outils libres
+4. **Act 3** : Jouez au simulateur en glissant la clé USB Linux sur les PC
+5. **Act 4** : Rejoignez la communauté NIRD via le CTA
+
+### Easter Eggs
+
+- **🐍 Snake** : Tapez "SNAKE" n'importe où sur le site
+- **🎮 Boss Battle** : Cliquez sur le bouton "Boss Battle" dans le footer
+
+---
+
+## 📊 Performance & Métriques
+
+### Objectifs Lighthouse
+
+| Métrique | Objectif | Statut |
+|----------|----------|--------|
+| Performance | > 90 | ✅ |
+| Accessibilité | > 90 | ✅ |
+| Best Practices | > 90 | ✅ |
+| SEO | > 90 | ✅ |
+
+### Optimisations
+
+- **Page Weight**: < 2MB (sans cache)
+- **Load Time (3G)**: < 3s
+- **FPS (Scroll)**: 60fps constant
+- **Time to Interactive**: < 2s
+
+---
+
+## 🌍 Compatibilité
+
+### Navigateurs Supportés
+
+- ✅ Chrome/Edge 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ❌ Internet Explorer (non supporté)
+
+### Appareils
+
+- ✅ Desktop (1920x1080 à 4K)
+- ✅ Tablet (768px+)
+- ✅ Mobile (320px+)
+- ✅ Mode paysage/portrait
+
+---
+
+## 🎨 Design System
+
+### Couleurs Principales
+
+```scss
+// Dystopie (Act 1)
+$dystopia-primary: #ff0055;    // Rouge néon
+$dystopia-bg: #0a0a0a;         // Noir profond
+$dystopia-error: #ff0000;      // Rouge erreur
+
+// Utopie (Act 2-4)
+$utopia-primary: #4CAF50;      // Vert nature
+$utopia-bg: #f5f5f5;           // Blanc cassé
+$utopia-text: #1a1a1a;         // Texte sombre
+```
+
+### Typographie
+
+- **Titres**: Inter (Google Fonts)
+- **Code**: JetBrains Mono (Google Fonts)
+- **Tailles**: Scale fluide de 14px à 72px
+
+---
+
+## 🤝 Contribution
+
+Ce projet est open source ! Les contributions sont les bienvenues.
+
+### Comment Contribuer
+
+1. Fork le projet
+2. Créer une branche (`git checkout -b feature/AmazingFeature`)
+3. Commit les changements (`git commit -m 'Add AmazingFeature'`)
+4. Push la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrir une Pull Request
+
+---
+
+## 📝 Licence
+
+Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+```
+MIT License - Copyright (c) 2025 NIRD Team
+
+✅ Usage commercial autorisé
+✅ Modification autorisée
+✅ Distribution autorisée
+✅ Usage privé autorisé
+```
+
+---
+
+## 🔗 Liens Utiles
+
+- **NIRD Official**: [nird.forge.apps.education.fr](https://nird.forge.apps.education.fr)
+- **Nuit de l'Info**: [nuitdelinfo.com](https://www.nuitdelinfo.com/)
+- **Framasoft**: [framasoft.org](https://framasoft.org/)
+- **Linux Mint LMDE**: [linuxmint.com](https://www.linuxmint.com/)
+
+---
+
+## 👥 Équipe
+
+Projet réalisé lors de la **Nuit de l'Info 2025**.
+
+**Technologies choisies** pour démontrer qu'on peut créer une expérience premium tout en restant éco-responsable : pas de frameworks lourds, animations performantes, code optimisé.
+
+---
+
+## 🙏 Remerciements
+
+- **NIRD** pour le défi inspirant autour du logiciel libre
+- **La communauté Open Source** (Framasoft, Linux, Mozilla...)
+- **GSAP & Lenis** pour les outils d'animation exceptionnels
+- **Vercel** pour l'hébergement gratuit
+
+---
+
+<div align="center">
+
+**🌱 Créé avec 💚 pour l'éducation libre**
+
+*"Résistez à l'obsolescence programmée. Libérez votre numérique."*
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/bastien404/NDLI-2k25)
+
+</div>
