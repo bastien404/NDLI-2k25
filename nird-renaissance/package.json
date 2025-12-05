@@ -1,0 +1,32 @@
+{
+  "name": "nird-renaissance",
+  "version": "1.0.0",
+  "description": "NIRD: The Renaissance - Une expérience immersive pour la libération numérique",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lighthouse": "lighthouse http://localhost:4173 --view"
+  },
+  "keywords": [
+    "nird",
+    "education",
+    "linux",
+    "sustainability",
+    "gsap",
+    "interactive"
+  ],
+  "author": "NIRD Team",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@studio-freight/lenis": "^1.0.42",
+    "gsap": "^3.13.0",
+    "sass": "^1.94.2",
+    "vite": "^7.2.6"
+  },
+  "dependencies": {
+    "@n8n/chat": "^1.0.0-rc.2"
+  }
+}

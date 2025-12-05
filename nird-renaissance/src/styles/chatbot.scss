@@ -1,0 +1,128 @@
+@use 'sass:color';
+@use 'variables' as *;
+@use 'base';
+
+
+#n8n-chat {
+    cursor: pointer;
+}
+
+:root {
+    // ===================================
+    // CHAT COLORS (Mapped to Dystopia)
+    // ===================================
+
+    // Primary (Red/Danger vibe)
+    --chat--color--primary: #{$dystopia-primary};
+    --chat--color--primary-shade-50: #{color.mix(black, $dystopia-primary, 10%)};
+    --chat--color--primary--shade-100: #{color.mix(black, $dystopia-primary, 20%)};
+
+    // Secondary (Hacker Green or Accent)
+    --chat--color--secondary: #{$dystopia-secondary};
+    --chat--color-secondary-shade-50: #{color.mix(black, $dystopia-secondary, 10%)};
+
+    // Neutrals
+    --chat--color-white: #{$dystopia-text}; // Off-white for retro feel
+    --chat--color-light: #{$dystopia-text};
+    --chat--color-light-shade-50: #{rgba($dystopia-text, 0.7)};
+    --chat--color-light-shade-100: #{rgba($dystopia-text, 0.5)};
+
+    // UI Colors
+    --chat--color-medium: #{color.adjust($dystopia-bg, $lightness: 20%)};
+    --chat--color-dark: #{$dystopia-bg};
+    --chat--color-disabled: #{rgba($dystopia-text, 0.3)};
+    --chat--color-typing: #{$dystopia-accent};
+
+    // ===================================
+    // LAYOUT &  SPACING
+    // ===================================
+
+    --chat--spacing: #{$spacing-sm};
+    --chat--border-radius: #{$spacing-xs}; // More angular for Dystopia
+    --chat--transition-duration: #{$duration-fast};
+
+    --chat--window--width: 550px;
+    --chat--window--height: 800px;
+
+    // ===================================
+    // HEADER
+    // ===================================
+
+    --chat--header-height: auto;
+    --chat--header--padding: var(--chat--spacing);
+    --chat--header--background: var(--chat--color-dark);
+    --chat--header--color: var(--chat--color-light);
+
+    // Borders (Optional: add neon borders for dystopia)
+    --chat--header--border-top: none;
+    --chat--header--border-bottom: 1px solid #{rgba($dystopia-primary, 0.3)};
+
+    --chat--heading--font-size: #{$font-size-2xl};
+    --chat--subtitle--font-size: #{$font-size-sm};
+    --chat--subtitle--line-height: 1.6;
+
+    // ===================================
+    // INPUT AREA
+    // ===================================
+
+    --chat--textarea--height: 50px;
+
+    // ===================================
+    // MESSAGES
+    // ===================================
+
+    --chat--message--font-size: #{$font-size-base};
+    --chat--message--padding: var(--chat--spacing);
+    --chat--message--border-radius: var(--chat--border-radius);
+    --chat--message-line-height: 1.6;
+
+    // Bot Message (System/Terminal style)
+    --chat--message--bot--background: #{color.adjust($dystopia-bg, $lightness: 10%)};
+    --chat--message--bot--color: #{$dystopia-text};
+    --chat--message--bot--border: 1px solid #{rgba($dystopia-text, 0.2)};
+
+    // User Message (Action style)
+    --chat--message--user--background: var(--chat--color--primary);
+    --chat--message--user--color: #{$dystopia-bg}; // Contrast text
+    --chat--message--user--border: none;
+
+    --chat--message--pre--background: #{rgba($dystopia-secondary, 0.1)};
+
+    // ===================================
+    // TOGGLE BUTTON
+    // ===================================
+
+    --chat--toggle--background: var(--chat--color--primary);
+    --chat--toggle--hover--background: var(--chat--color--primary-shade-50);
+    --chat--toggle--active--background: var(--chat--color--primary--shade-100);
+    --chat--toggle--color: var(--chat--color-dark);
+    --chat--toggle--size: #{$spacing-lg};
+
+    // Font Family Injection (Bonus)
+    --chat--font-family: #{$font-mono};
+}
+
+// ===================================
+// ACT 2: UTOPIA THEME OVERRIDE
+// ===================================
+// Ajoute cette classe au body ou au container du chat pour changer de thème
+.theme-utopia {
+    --chat--color--primary: #{$utopia-primary};
+    --chat--color--primary-shade-50: #{color.adjust($utopia-primary, $lightness: -10%)};
+    --chat--color--primary--shade-100: #{color.adjust($utopia-primary, $lightness: -20%)};
+
+    --chat--color--secondary: #{$utopia-secondary};
+    --chat--color-white: #{$utopia-bg};
+
+    --chat--color-dark: #{$utopia-text};
+    --chat--color-typing: #{$utopia-accent};
+
+    --chat--message--bot--background: #ffffff;
+    --chat--message--bot--color: #{$utopia-text};
+    --chat--message--bot--border: none;
+
+    --chat--message--user--color: white;
+
+    --chat--font-family: #{$font-sans}; // Switch to clean sans-serif
+    --chat--border-radius: #{$spacing-sm}; // Rounder corners
+}

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: n8n_Chatbruti_HTTP418
+    user: node
+    working_dir: /home/node
+    runtime: runc
+    restart: "yes"
+    
+    # Configuration Réseau
+    ports:
+      - "5678:5678"
+    
+    # Variables d'environnement
+    # J'ai gardé celles utiles à la configuration de l'app.
+    # Les variables système (PATH, NODE_VERSION...) sont gérées par l'image elle-même.
+    environment:
+      - NODE_ENV=production
+      - N8N_RELEASE_TYPE=stable
+      - NODE_ICU_DATA=/usr/local/lib/node_modules/full-icu
+      - SHELL=/bin/sh
+
+    # Volumes (Persistance des données)
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+    # Labels (Métadonnées)
+    labels:
+      - "org.opencontainers.image.description=Workflow Automation Tool"
+      - "org.opencontainers.image.source=https://github.com/n8n-io/n8n"
+      - "org.opencontainers.image.title=n8n"
+      - "org.opencontainers.image.url=https://n8n.io"
+      - "org.opencontainers.image.version=latest"
+
+# Déclaration du volume
+volumes:
+  n8n_data:

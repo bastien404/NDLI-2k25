@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NIRD: The Renaissance - Une expérience immersive pour la libération numérique">
+  <title>NIRD: The Renaissance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div class="custom-cursor">
+    <div class="cursor-inner"></div>
+  </div>
+
+  <!-- Act 0: BIOS Loader -->
+  <section id="act0-loader" class="loader">
+    <div class="loader__content">
+      <div class="loader__bios">
+        <p class="loader__text">NIRD SYSTEM BIOS v1.0</p>
+        <p class="loader__text">Checking system...</p>
+        <p class="loader__text">RAM: OK</p>
+        <p class="loader__text">Liberté: LOADING...</p>
+        <div class="loader__progress">
+          <span class="loader__percentage">0%</span>
+        </div>
+      </div>
+      <div class="loader__logo hidden">
+        <h1>NIRD</h1>
+        <p>The Renaissance</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main id="main-content" class="hidden">
+
+    <!-- Act 1: L'Obsolescence (Dystopia) -->
+    <section id="act1-obsolescence" class="act act--dystopia">
+      <div class="parallax-container">
+        <!-- Background Layer -->
+        <div class="parallax-layer layer-bg" data-speed="0.5">
+          <div class="binary-rain"></div>
+        </div>
+
+        <!-- Middle Layer - PC Mountains -->
+        <div class="parallax-layer layer-mid" data-speed="0.7">
+          <div class="pc-mountain pc-mountain--left">
+            <svg viewBox="0 0 200 300" class="pc-stack">
+              <rect x="20" y="50" width="160" height="120" fill="#1a1a1a" stroke="#ff0000" stroke-width="2" />
+              <rect x="70" y="70" width="60" height="40" fill="#000" opacity="0.3" />
+              <text x="100" y="140" fill="#ff0000" font-size="12" text-anchor="middle"
+                font-family="JetBrains Mono">ERROR</text>
+            </svg>
+          </div>
+          <div class="pc-mountain pc-mountain--center">
+            <svg viewBox="0 0 200 300" class="pc-stack">
+              <rect x="20" y="30" width="160" height="140" fill="#1a1a1a" stroke="#ff0000" stroke-width="2" />
+              <rect x="70" y="50" width="60" height="50" fill="#000" opacity="0.3" />
+              <circle cx="100" cy="150" r="5" fill="#ff0000">
+                <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
+              </circle>
+            </svg>
+          </div>
+          <div class="pc-mountain pc-mountain--right">
+            <svg viewBox="0 0 200 300" class="pc-stack">
+              <rect x="20" y="60" width="160" height="110" fill="#1a1a1a" stroke="#ff0000" stroke-width="2" />
+              <rect x="70" y="80" width="60" height="35" fill="#000" opacity="0.3" />
+              <text x="100" y="130" fill="#ff0000" font-size="10" text-anchor="middle" font-family="JetBrains Mono">WIN
+                10</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Foreground Layer - Content -->
+        <div class="parallax-layer layer-fg" data-speed="1.2">
+          <div class="content-wrapper">
+            <h2 class="glitch-text" data-text="L'OBSOLESCENCE PROGRAMMÉE">L'OBSOLESCENCE PROGRAMMÉE</h2>
+            <div class="error-popup">
+              <div class="error-popup__header">
+                <span class="error-popup__icon">⚠️</span>
+                <span class="error-popup__title">Erreur Système</span>
+                <button class="error-popup__close">✕</button>
+              </div>
+              <div class="error-popup__body">
+                <p><strong>Windows 10 : Fin de support - Octobre 2025</strong></p>
+                <p>Votre matériel est-il vraiment mort ?</p>
+                <p class="highlight">500 millions d'ordinateurs menacés</p>
+              </div>
+            </div>
+            <p class="subtitle reveal-text">
+              <span>Des milliards de machines jetées.</span><br>
+              <span>Des tonnes de déchets électroniques.</span><br>
+              <span>Il existe une autre voie...</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <span>Scrollez pour libérer</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- Transition: Screen Tear -->
+    <div class="screen-tear"></div>
+
+    <!-- Act 2: La Résistance (Utopia Transition) -->
+    <section id="act2-resistance" class="act act--utopia">
+      <div class="content-wrapper">
+
+        <!-- Kinetic Typography -->
+        <div class="kinetic-words">
+          <div class="kinetic-word" data-word="INCLUSIF">
+            <h2 class="reveal-text">INCLUSIF</h2>
+          </div>
+          <div class="kinetic-word" data-word="RESPONSABLE">
+            <h2 class="reveal-text">RESPONSABLE</h2>
+          </div>
+          <div class="kinetic-word" data-word="DURABLE">
+            <h2 class="reveal-text">DURABLE</h2>
+          </div>
+        </div>
+
+        <!-- Mission Statement -->
+        <div class="mission">
+          <p class="reveal-text">
+            <span>NIRD: Numérique Inclusif, Responsable et Durable.</span><br>
+            <span>Nous transformons les établissements scolaires.</span><br>
+            <span>Nous donnons une seconde vie aux machines.</span><br>
+            <span>Nous formons les résistants du numérique libre.</span>
+          </p>
+        </div>
+
+        <!-- Tool Showcase Cards -->
+        <div class="tool-cards">
+          <div class="tool-card magnetic" data-type="nird">
+            <div class="tool-card__icon">
+              <svg viewBox="0 0 100 100" width="80" height="80">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#4CAF50" stroke-width="3" />
+                <path d="M30 50 L45 65 L70 35" stroke="#4CAF50" stroke-width="5" fill="none" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>Linux Mint LMDE</h3>
+            <p>Distribution légère et accessible, parfaite pour redonner vie aux anciens ordinateurs.</p>
+          </div>
+
+          <div class="tool-card magnetic" data-type="nird">
+            <div class="tool-card__icon">
+              <svg viewBox="0 0 100 100" width="80" height="80">
+                <rect x="10" y="20" width="80" height="60" rx="5" fill="none" stroke="#FF9800" stroke-width="3" />
+                <path d="M30 40 L50 55 L70 40" stroke="#FF9800" stroke-width="3" fill="none" stroke-linecap="round" />
+                <circle cx="50" cy="60" r="8" fill="#FF9800" />
+              </svg>
+            </div>
+            <h3>La Forge</h3>
+            <p>Notre plateforme collaborative pour partager ressources, tutoriels et expériences.</p>
+            <a href="https://nird.forge.apps.education.fr" target="_blank" class="tool-card__link">Découvrir →</a>
+          </div>
+
+          <div class="tool-card magnetic" data-type="nird">
+            <div class="tool-card__icon">
+              <svg viewBox="0 0 100 100" width="80" height="80">
+                <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" fill="none" stroke="#2196F3" stroke-width="3" />
+                <circle cx="50" cy="50" r="15" fill="#2196F3" />
+                <circle cx="30" cy="40" r="5" fill="#2196F3" />
+                <circle cx="70" cy="40" r="5" fill="#2196F3" />
+                <circle cx="30" cy="60" r="5" fill="#2196F3" />
+                <circle cx="70" cy="60" r="5" fill="#2196F3" />
+              </svg>
+            </div>
+            <h3>Formation Continue</h3>
+            <p>Accompagnement personnalisé pour les équipes éducatives vers le numérique libre.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Act 3: Le Simulateur (Interactive Game) -->
+    <section id="act3-simulator" class="act act--game">
+      <div class="content-wrapper">
+        <h2 class="reveal-text">RÉPAREZ LE LYCÉE</h2>
+        <p class="subtitle">Transformez les ordinateurs obsolètes en machines libres et performantes</p>
+
+        <div class="game-container">
+          <div class="game-stats">
+            <div class="stat">
+              <span class="stat__label">PC Réparés</span>
+              <span class="stat__value" id="pc-repaired">0</span>
+            </div>
+            <div class="stat">
+              <span class="stat__label">CO₂ Évité</span>
+              <span class="stat__value" id="co2-saved">0 kg</span>
+            </div>
+            <div class="stat">
+              <span class="stat__label">Années de vie</span>
+              <span class="stat__value" id="years-saved">0</span>
+            </div>
+          </div>
+
+          <div class="game-area">
+            <!-- Broken PCs -->
+            <div class="pc-grid">
+              <div class="pc broken" data-pc-id="1">
+                <svg viewBox="0 0 120 120" width="100" height="100">
+                  <rect x="10" y="20" width="100" height="80" rx="5" fill="#333" stroke="#ff0000" stroke-width="2" />
+                  <rect x="30" y="35" width="60" height="40" fill="#000" opacity="0.5" />
+                  <text x="60" y="70" fill="#ff0000" font-size="16" text-anchor="middle"
+                    font-family="JetBrains Mono">ERROR</text>
+                  <circle cx="60" cy="90" r="3" fill="#ff0000">
+                    <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                </svg>
+                <p class="pc__label">PC Windows 10</p>
+              </div>
+
+              <div class="pc broken" data-pc-id="2">
+                <svg viewBox="0 0 120 120" width="100" height="100">
+                  <rect x="10" y="20" width="100" height="80" rx="5" fill="#333" stroke="#ff0000" stroke-width="2" />
+                  <rect x="30" y="35" width="60" height="40" fill="#000" opacity="0.5" />
+                  <text x="60" y="70" fill="#ff0000" font-size="16" text-anchor="middle"
+                    font-family="JetBrains Mono">ERROR</text>
+                  <circle cx="60" cy="90" r="3" fill="#ff0000">
+                    <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                </svg>
+                <p class="pc__label">PC Windows 10</p>
+              </div>
+
+              <div class="pc broken" data-pc-id="3">
+                <svg viewBox="0 0 120 120" width="100" height="100">
+                  <rect x="10" y="20" width="100" height="80" rx="5" fill="#333" stroke="#ff0000" stroke-width="2" />
+                  <rect x="30" y="35" width="60" height="40" fill="#000" opacity="0.5" />
+                  <text x="60" y="70" fill="#ff0000" font-size="16" text-anchor="middle"
+                    font-family="JetBrains Mono">ERROR</text>
+                  <circle cx="60" cy="90" r="3" fill="#ff0000">
+                    <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                </svg>
+                <p class="pc__label">PC Windows 10</p>
+              </div>
+            </div>
+
+            <!-- USB Key (draggable) -->
+            <div class="usb-container">
+              <div id="usb-key" class="usb-key draggable" draggable="true">
+                <svg viewBox="0 0 80 120" width="60" height="90">
+                  <rect x="20" y="10" width="40" height="60" rx="8" fill="#4CAF50" stroke="#2E7D32" stroke-width="2" />
+                  <rect x="35" y="70" width="10" height="30" fill="#666" />
+                  <rect x="30" y="100" width="20" height="10" rx="2" fill="#999" />
+                  <text x="40" y="45" fill="white" font-size="12" text-anchor="middle" font-weight="bold">LINUX</text>
+                  <text x="40" y="58" fill="white" font-size="8" text-anchor="middle">MINT</text>
+                </svg>
+                <p class="usb-key__label">Glissez-moi sur les PC !</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="confetti-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Act 4: L'Appel (Footer CTA) -->
+    <footer id="act4-footer" class="act act--cta">
+      <div class="content-wrapper">
+        <h2 class="cta-title reveal-text">
+          <span>REJOIGNEZ</span><br>
+          <span>LA RÉSISTANCE</span>
+        </h2>
+
+        <p class="cta-subtitle reveal-text">
+          <span>Ensemble, construisons un numérique éducatif libre, durable et accessible à tous.</span>
+        </p>
+
+        <a href="https://nird.forge.apps.education.fr" target="_blank" class="cta-button magnetic hover-reveal"
+          data-type="nird">
+          <span class="cta-button__text">Découvrir NIRD</span>
+          <span class="cta-button__arrow">→</span>
+          <div class="cta-button__bg"></div>
+        </a>
+
+        <div class="footer-links">
+          <a href="https://nird.forge.apps.education.fr" target="_blank">La Forge</a>
+          <a href="#" target="_blank">Documentation</a>
+          <a href="#" target="_blank">Communauté</a>
+          <a href="#" target="_blank">Contact</a>
+        </div>
+
+        
+        <script type="module">
+          import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+          import '@n8n/chat/dist/style.css';
+          createChat({
+            webhookUrl: 'http://localhost:5678/webhook/91fa2598-3f28-4424-933f-3f3f645696b6/chat',
+            webhookConfig: {
+              method: 'POST',
+              headers: {}
+            },
+            target: '#n8n-chat',
+            mode: 'window',
+            chatInputKey: 'chatInput',
+            chatSessionKey: 'sessionId',
+            loadPreviousSession: true,
+            metadata: {},
+            showWelcomeScreen: false,
+            defaultLanguage: 'fr',
+            initialMessages: [
+              'Bonjour ! 👋',
+              'Mon nom est Proto-Gérard v0.1. Comment puis-je vous aider aujourd\'hui ?'
+            ],
+            i18n: {
+              fr: {
+                title: 'Bonjour ! ou Bonsoir !👋',
+                subtitle: "Démarrer une conversation. Nous sommes là pour vous aider 24/7.",
+                footer: '',
+                getStarted: 'Nouvelle conversation',
+                inputPlaceholder: 'Ecrivez votre question ici...',
+              },
+            },
+            enableStreaming: false,
+          });
+        </script>
+
+        <p class="footer-credits">
+          Créé avec 💚 pour l'éducation libre • NIRD 2025
+        </p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

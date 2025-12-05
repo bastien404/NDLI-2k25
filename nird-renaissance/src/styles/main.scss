@@ -1,0 +1,872 @@
+@use 'variables' as *;
+@use 'sass:color';
+@use 'act2';
+
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: $z-cursor;
+    mix-blend-mode: difference;
+
+    .cursor-inner {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform $duration-normal $ease-out-expo,
+            background-color $duration-fast $ease-in-out-cubic;
+    }
+
+    &.is-big-tech {
+        .cursor-inner {
+            background-color: $dystopia-error;
+            border-radius: 0;
+            animation: shake 0.5s infinite;
+        }
+    }
+
+    &.is-nird {
+        .cursor-inner {
+            transform: scale(2);
+            background-color: $utopia-primary;
+        }
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-2px, 2px);
+    }
+
+    75% {
+        transform: translate(2px, -2px);
+    }
+}
+
+// ===================================
+// ACT 0: LOADER
+// ===================================
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    color: $dystopia-secondary;
+    z-index: $z-loader;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+
+    &__content {
+        text-align: left;
+    }
+
+    &__text {
+        font-size: $font-size-sm;
+        margin-bottom: $spacing-xs;
+        opacity: 0;
+    }
+
+    &__progress {
+        margin-top: $spacing-md;
+        font-size: $font-size-lg;
+    }
+
+    &__percentage {
+        color: $dystopia-secondary;
+    }
+
+    &__logo {
+        text-align: center;
+        color: white;
+
+        h1 {
+            font-size: $font-size-5xl;
+            color: $utopia-primary;
+            margin-bottom: $spacing-sm;
+        }
+
+        p {
+            font-size: $font-size-xl;
+            font-weight: $font-weight-light;
+        }
+    }
+}
+
+//===================================
+// ACT 1: DYSTOPIA
+// ===================================
+
+.parallax-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; // Fixed height ensures container is visible
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &.layer-fg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+}
+
+.binary-rain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 0, 0, 0.03) 2px,
+            rgba(255, 0, 0, 0.03) 4px);
+    animation: binary-scroll 20s linear infinite;
+}
+
+@keyframes binary-scroll {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 100vh;
+    }
+}
+
+.pc-mountain {
+    position: absolute;
+    bottom: 10%;
+
+    &--left {
+        left: 10%;
+        width: 200px;
+    }
+
+    &--center {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+    }
+
+    &--right {
+        right: 10%;
+        width: 200px;
+    }
+
+    @media (max-width: $breakpoint-md) {
+        &--left {
+            left: 5%;
+            width: 120px;
+        }
+
+        &--center {
+            width: 150px;
+        }
+
+        &--right {
+            right: 5%;
+            width: 120px;
+        }
+    }
+}
+
+.glitch-text {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    text-align: center;
+    color: $dystopia-primary;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: glitch 3s infinite;
+
+    @media (max-width: $breakpoint-md) {
+        font-size: $font-size-2xl;
+    }
+}
+
+@keyframes glitch {
+
+    0%,
+    100% {
+        text-shadow:
+            0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+            0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    14%,
+    28%,
+    42%,
+    56%,
+    70% {
+        text-shadow: none;
+    }
+}
+
+.error-popup {
+    max-width: 600px;
+    background: #1a1a1a;
+    border: 2px solid $dystopia-error;
+    border-radius: 0;
+    margin: $spacing-lg auto;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+
+    &__header {
+        background: $dystopia-error;
+        color: white;
+        padding: $spacing-xs $spacing-sm;
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        font-family: $font-mono;
+        font-size: $font-size-sm;
+    }
+
+    &__icon {
+        font-size: $font-size-lg;
+    }
+
+    &__title {
+        flex: 1;
+    }
+
+    &__close {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: $font-size-lg;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+    }
+
+    &__body {
+        padding: $spacing-md;
+        font-size: $font-size-base;
+
+        p {
+            margin-bottom: $spacing-sm;
+        }
+
+        .highlight {
+            color: $dystopia-error;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-lg;
+        }
+    }
+}
+
+.subtitle {
+    text-align: center;
+    font-size: $font-size-lg;
+    margin-top: $spacing-lg;
+    line-height: 1.8;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: $spacing-md;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: $dystopia-secondary;
+    font-family: $font-mono;
+
+    .scroll-arrow {
+        width: 30px;
+        height: 50px;
+        border: 2px solid $dystopia-secondary;
+        border-radius: 20px;
+        margin: $spacing-sm auto 0;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: $dystopia-secondary;
+            border-radius: 50%;
+            animation: scroll-dot 2s infinite;
+        }
+    }
+}
+
+@keyframes scroll-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+        top: 10px;
+    }
+
+    50% {
+        opacity: 0;
+        top: 30px;
+    }
+}
+
+// ===================================
+// SCREEN TEAR TRANSITION
+// ===================================
+
+.screen-tear {
+    position: relative;
+    height: 100px;
+    background: linear-gradient(180deg, $dystopia-bg 0%, $utopia-bg 100%);
+    z-index: $z-base + 1;
+}
+
+// ===================================
+// ACT 2: UTOPIA
+// ===================================
+
+.kinetic-words {
+    padding: $spacing-2xl 0;
+    position: relative;
+}
+
+.kinetic-word {
+    padding: $spacing-xl 0;
+
+    h2 {
+        font-size: $font-size-5xl;
+        font-weight: $font-weight-bold;
+        color: $utopia-primary;
+        text-align: center;
+
+        @media (max-width: $breakpoint-md) {
+            font-size: $font-size-3xl;
+        }
+    }
+}
+
+.mission {
+    text-align: center;
+    padding: $spacing-lg 0;
+    font-size: $font-size-lg;
+    max-width: 800px;
+    margin: 0 auto;
+
+    span {
+        display: block;
+        margin-bottom: $spacing-sm;
+    }
+}
+
+.tool-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-md;
+    margin-top: $spacing-xl;
+
+    @media (max-width: $breakpoint-sm) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tool-card {
+    background: white;
+    border-radius: 16px;
+    padding: $spacing-md;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform $duration-normal $ease-out-expo,
+        box-shadow $duration-normal $ease-out-expo;
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        margin-bottom: $spacing-sm;
+    }
+
+}
+
+.error-popup {
+    max-width: 600px;
+    background: #1a1a1a;
+    border: 2px solid $dystopia-error;
+    border-radius: 0;
+    margin: $spacing-lg auto;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+
+    &__header {
+        background: $dystopia-error;
+        color: white;
+        padding: $spacing-xs $spacing-sm;
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        font-family: $font-mono;
+        font-size: $font-size-sm;
+    }
+
+    &__icon {
+        font-size: $font-size-lg;
+    }
+
+    &__title {
+        flex: 1;
+    }
+
+    &__close {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: $font-size-lg;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+    }
+
+    &__body {
+        padding: $spacing-md;
+        font-size: $font-size-base;
+
+        p {
+            margin-bottom: $spacing-sm;
+        }
+
+        .highlight {
+            color: $dystopia-error;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-lg;
+        }
+    }
+}
+
+.subtitle {
+    text-align: center;
+    font-size: $font-size-lg;
+    margin-top: $spacing-lg;
+    line-height: 1.8;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: $spacing-md;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: $dystopia-secondary;
+    font-family: $font-mono;
+
+    .scroll-arrow {
+        width: 30px;
+        height: 50px;
+        border: 2px solid $dystopia-secondary;
+        border-radius: 20px;
+        margin: $spacing-sm auto 0;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: $dystopia-secondary;
+            border-radius: 50%;
+            animation: scroll-dot 2s infinite;
+        }
+    }
+}
+
+@keyframes scroll-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+        top: 10px;
+    }
+
+    50% {
+        opacity: 0;
+        top: 30px;
+    }
+}
+
+// ===================================
+// SCREEN TEAR TRANSITION
+// ===================================
+
+.screen-tear {
+    position: relative;
+    height: 100px;
+    background: linear-gradient(180deg, $dystopia-bg 0%, $utopia-bg 100%);
+    z-index: $z-base + 1;
+}
+
+// ===================================
+// ACT 2: UTOPIA
+// ===================================
+
+.kinetic-words {
+    padding: $spacing-2xl 0;
+    position: relative;
+}
+
+.kinetic-word {
+    padding: $spacing-xl 0;
+
+    h2 {
+        font-size: $font-size-5xl;
+        font-weight: $font-weight-bold;
+        color: $utopia-primary;
+        text-align: center;
+
+        @media (max-width: $breakpoint-md) {
+            font-size: $font-size-3xl;
+        }
+    }
+}
+
+.mission {
+    text-align: center;
+    padding: $spacing-lg 0;
+    font-size: $font-size-lg;
+    max-width: 800px;
+    margin: 0 auto;
+
+    span {
+        display: block;
+        margin-bottom: $spacing-sm;
+    }
+}
+
+.tool-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-md;
+    margin-top: $spacing-xl;
+
+    @media (max-width: $breakpoint-sm) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tool-card {
+    background: white;
+    border-radius: 16px;
+    padding: $spacing-md;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform $duration-normal $ease-out-expo,
+        box-shadow $duration-normal $ease-out-expo;
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        margin-bottom: $spacing-sm;
+    }
+
+    h3 {
+        color: $utopia-text;
+        margin-bottom: $spacing-sm;
+    }
+
+    p {
+        color: color.adjust($utopia-text, $lightness: 20%);
+        font-size: $font-size-sm;
+        margin-bottom: $spacing-sm;
+    }
+
+    &__link {
+        color: $utopia-primary;
+        font-weight: $font-weight-semibold;
+        display: inline-block;
+        margin-top: $spacing-sm;
+
+        &:hover {
+            color: color.adjust($utopia-primary, $lightness: -10%);
+        }
+    }
+}
+
+// ===================================
+// ACT 3: SIMULATOR
+// ===================================
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+    background: white;
+    padding: $spacing-md;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+
+    &__label {
+        display: block;
+        font-size: $font-size-sm;
+        color: color.adjust($utopia-text, $lightness: 30%);
+        margin-bottom: $spacing-xs;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    &__value {
+        display: block;
+        font-size: $font-size-3xl;
+        font-weight: $font-weight-bold;
+        color: $utopia-primary;
+    }
+}
+
+.game-area {
+    background: white;
+    border-radius: 20px;
+    padding: $spacing-lg;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    min-height: 500px;
+}
+
+.pc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+}
+
+.pc {
+    text-align: center;
+    padding: $spacing-md;
+    border-radius: 12px;
+    background: #f5f5f5;
+    transition: all $duration-normal $ease-out-expo;
+
+    &.broken {
+        background: #ffe0e0;
+    }
+
+    &.fixed {
+        background: #e0ffe0;
+        animation: pulse 0.6s ease-out;
+    }
+
+    &__label {
+        font-size: $font-size-sm;
+        margin-top: $spacing-sm;
+        font-family: $font-mono;
+    }
+
+    &.drag-over {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.usb-container {
+    display: flex;
+    justify-content: center;
+    margin-top: $spacing-lg;
+}
+
+.usb-key {
+    text-align: center;
+    cursor: grab;
+    transition: transform $duration-normal $ease-out-expo;
+
+    &:active {
+        cursor: grabbing;
+        transform: scale(0.95);
+    }
+
+    &__label {
+        margin-top: $spacing-sm;
+        font-size: $font-size-sm;
+        color: $utopia-primary;
+        font-weight: $font-weight-semibold;
+    }
+}
+
+.confetti-container {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: $utopia-primary;
+    animation: confetti-fall 3s ease-out forwards;
+}
+
+@keyframes confetti-fall {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(500px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+// ===================================
+// ACT 4: FOOTER CTA
+// ===================================
+
+.cta-title {
+    text-align: center;
+    font-size: $font-size-5xl;
+    color: $utopia-text;
+    margin-bottom: $spacing-md;
+
+    @media (max-width: $breakpoint-md) {
+        font-size: $font-size-4xl;
+    }
+}
+
+.cta-subtitle {
+    text-align: center;
+    font-size: $font-size-xl;
+    color: color.adjust($utopia-text, $lightness: 20%);
+    margin-bottom: $spacing-xl;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    background: $utopia-primary;
+    color: white;
+    padding: $spacing-md $spacing-lg;
+    border-radius: 50px;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    margin: 0 auto;
+    display: flex;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    transition: transform $duration-normal $ease-out-expo;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &__text {
+        position: relative;
+        z-index: 2;
+    }
+
+    &__arrow {
+        position: relative;
+        z-index: 2;
+        transition: transform $duration-normal $ease-out-expo;
+    }
+
+    &:hover &__arrow {
+        transform: translateX(5px);
+    }
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: color.adjust($utopia-primary, $lightness: -10%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform $duration-slow $ease-out-expo;
+    }
+
+    &:hover &__bg {
+        transform: scaleX(1);
+    }
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-lg;
+    margin-top: $spacing-xl;
+    flex-wrap: wrap;
+
+    a {
+        color: color.adjust($utopia-text, $lightness: 30%);
+        font-size: $font-size-base;
+
+        &:hover {
+            color: $utopia-primary;
+        }
+    }
+}
+
+.footer-credits {
+    text-align: center;
+    margin-top: $spacing-lg;
+    color: color.adjust($utopia-text, $lightness: 40%);
+    font-size: $font-size-sm;
+}

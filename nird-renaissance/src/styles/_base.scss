@@ -1,0 +1,199 @@
+@use 'sass:color';
+@use 'variables' as *;
+// ===================================
+// CSS RESET & BASE STYLES
+// ===================================
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: auto; // Lenis handles smooth scroll
+}
+
+body {
+    font-family: $font-sans;
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    line-height: 1.6;
+    color: $dystopia-text;
+    background-color: $dystopia-bg;
+    overflow-x: hidden;
+    cursor: none; // Custom cursor
+
+    &.lenis {
+        overflow: auto;
+    }
+
+    &.lenis.lenis-smooth {
+        scroll-behavior: auto;
+    }
+
+    &.lenis.lenis-stopped {
+        overflow: hidden;
+    }
+}
+
+// ===================================
+// TYPOGRAPHY
+// ===================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+    margin-bottom: $spacing-sm;
+}
+
+h1 {
+    font-size: $font-size-5xl;
+
+    @media (max-width: $breakpoint-md) {
+        font-size: $font-size-4xl;
+    }
+}
+
+h2 {
+    font-size: $font-size-4xl;
+
+    @media (max-width: $breakpoint-md) {
+        font-size: $font-size-3xl;
+    }
+}
+
+h3 {
+    font-size: $font-size-2xl;
+}
+
+p {
+    margin-bottom: $spacing-sm;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color $duration-normal $ease-in-out-cubic;
+}
+
+// ===================================
+// UTILITY CLASSES
+// ===================================
+
+.hidden {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+// ===================================
+// CUSTOM SCROLLBAR
+// ===================================
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: $dystopia-bg;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $dystopia-primary;
+    border-radius: 4px;
+
+    &:hover {
+        background: color.adjust($dystopia-primary, $lightness: 10%);
+    }
+}
+
+// ===================================
+// SECTION LAYOUT
+// ===================================
+
+.act {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    &--dystopia {
+        background-color: $dystopia-bg;
+        color: $dystopia-text;
+    }
+
+    &--utopia {
+        background-color: $utopia-bg;
+        color: $utopia-text;
+    }
+
+    &--game {
+        background: linear-gradient(135deg, $utopia-bg 0%, color.scale($utopia-primary, $lightness: 88.61%) 100%);
+        color: $utopia-text;
+    }
+
+    &--cta {
+        background: linear-gradient(180deg, $utopia-bg 0%, color.scale($utopia-bg, $lightness: -5.48%) 100%);
+        color: $utopia-text;
+    }
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $spacing-lg $spacing-md;
+    position: relative;
+    z-index: $z-base;
+}
+
+// ===================================
+// REVEAL TEXT ANIMATION
+// ===================================
+
+.reveal-text {
+    span {
+        display: block;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            display: block;
+            transform: translateY(100%);
+        }
+    }
+}
+
+// ===================================
+// PREFERS REDUCED MOTION
+// ===================================
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
